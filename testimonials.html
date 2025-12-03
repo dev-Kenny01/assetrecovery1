@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RECOVERY_FIXS | Testimonials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #0ea5e9;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--primary);
+      background-color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header — Always dark (like index.html) */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.2rem 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.1rem;
+    }
+
+    .logo img {
+      height: 30px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2ECCDC;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hamburger, .close-menu {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: auto;
+        width: 75%;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1.5rem;
+        transition: right 0.3s ease;
+        z-index: 1001;
+        padding: 2rem 1.5rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .close-menu {
+        display: block;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+        color: var(--primary);
+        font-size: 1.8rem;
+      }
+
+      .nav-links li {
+        width: 100%;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .nav-links a {
+        color: var(--primary);
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .nav-links::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #e2e8f0;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    /* Hero */
+    .testimonials-hero {
+      height: 50vh;
+      background: url('imgs/5.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      padding-top: 100px;
+      margin-top: 80px;
+    }
+
+    .testimonials-hero-content {
+      max-width: 750px;
+      padding: 0 1.5rem;
+    }
+
+    .testimonials-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonials-hero p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Testimonials Section */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      color: var(--primary);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .testimonial-card img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.2rem;
+      border: 3px solid var(--accent);
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--secondary);
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .testimonial-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .testimonial-meta .name {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .testimonial-meta .role {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #334155;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (exactly like index.html) -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <img src="imgs/logorecovery.png" alt="RECOVERY_FIXS Logo">
+          <span class="logo-text">RECOVERY FIXS</span>
+        </div>
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+          </button>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="testimonials-hero">
+    <div class="testimonials-hero-content">
+      <h1>What Our Clients Say</h1>
+      <p>Real stories from people who recovered their crypto with us</p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title">Client Testimonials</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80" alt="Michael T.">
+          <p>"I lost access to a hardware wallet with 12 BTC after my house flooded. RECOVERY FIXS recovered it in 5 days. I’m still in shock — they’re miracle workers."</p>
+          <div class="testimonial-meta">
+            <div class="name">Michael T.</div>
+            <div class="role">Crypto Investor</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Sarah K.">
+          <p>"As a blockchain developer, I built a custom wallet and accidentally corrupted the keys. Their team reverse-engineered my code and recovered the funds. Incredible technical skill."</p>
+          <div class="testimonial-meta">
+            <div class="name">Sarah K.</div>
+            <div class="role">Blockchain Developer</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="David R.">
+          <p>"After a phishing scam drained my DeFi portfolio, I thought it was over. RECOVERY FIXS traced the transaction and helped me recover 80% of my assets. Lifesavers!"</p>
+          <div class="testimonial-meta">
+            <div class="name">David R.</div>
+            <div class="role">DeFi Trader</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" alt="Marcus L.">
+          <p>"My NFT collection (valued at $250K) was locked in a corrupted MetaMask vault. They not only recovered the wallet but also guided me on secure storage. 10/10 service."</p>
+          <div class="testimonial-meta">
+            <div class="name">Marcus L.</div>
+            <div class="role">NFT Collector</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&h=100&q=80" alt="Elena J.">
+          <p>"We lost access to a corporate cold wallet after our CTO left abruptly. RECOVERY FIXS handled everything with discretion and recovered over $1.2M in assets. Highly professional."</p>
+          <div class="testimonial-meta">
+            <div class="name">Elena J.</div>
+            <div class="role">Institutional Client</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer — Contact section REMOVED -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-lock"></i> RECOVERY FIXS</h3>
+          <p>We specialize in securing and recovering lost or stolen digital assets. Our trusted team is here to assist you with crypto wallet recovery, scam investigations, and more.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Recovery Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <!-- ✅ "Contact" column REMOVED -->
+      </div>
+      <div class="copyright">
+        &copy; 2025 RECOVERYFIXS. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const closeMenu = document.getElementById('closeMenu');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => navLinks.classList.add('active'));
+    closeMenu.addEventListener('click', () => navLinks.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+  </script>
+</body>
+</html>

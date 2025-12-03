@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RECOVERY_FIXS | About Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #0ea5e9;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--primary);
+      background-color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header — Always dark (like index.html) */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.2rem 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.1rem;
+    }
+
+    .logo img {
+      height: 30px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color:#2ECCDC;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hamburger, .close-menu {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: auto;
+        width: 75%;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1.5rem;
+        transition: right 0.3s ease;
+        z-index: 1001;
+        padding: 2rem 1.5rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .close-menu {
+        display: block;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+        color: var(--primary);
+        font-size: 1.8rem;
+      }
+
+      .nav-links li {
+        width: 100%;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .nav-links a {
+        color: var(--primary);
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .nav-links::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #e2e8f0;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    /* Hero */
+    .about-hero {
+      height: 45vh;
+      background: url('imgs/5.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      padding-top: 100px;
+      margin-top: 80px;
+    }
+
+    .about-hero-content {
+      max-width: 750px;
+      padding: 0 1.5rem;
+    }
+
+    .about-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-hero p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      color: var(--secondary);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Mission & Vision */
+    .mv-section {
+      background: white;
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .mv-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .mv-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .mv-text {
+      text-align: justify;
+      text-justify: inter-word;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--secondary);
+    }
+
+    .mv-text h2 {
+      font-size: 1.8rem;
+      margin: 1.5rem 0 1rem;
+      color: var(--primary);
+    }
+
+    .mv-text h2:first-child {
+      margin-top: 0;
+    }
+
+    /* Why Choose Us */
+    .why-section {
+      background: #f1f5f9;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .why-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+    }
+
+    .why-card i {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .why-card h3 {
+      margin: 1rem 0;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+
+    .why-card p {
+      color: var(--secondary);
+      font-size: 1.05rem;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 900px) {
+      .mv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mv-text {
+        text-align: left;
+        padding: 0 1rem;
+      }
+
+      .section-subtitle {
+        padding: 0 1rem;
+        text-align: center;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #334155;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (exactly like index.html) -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <img src="imgs/logorecovery.png" alt="RECOVERY_FIXS Logo">
+          <span class="logo-text">RECOVERY_FIXS</span>
+        </div>
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+          </button>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <h1>About Us</h1>
+      <p>Learn more about our team and values</p>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="mv-section">
+    <div class="container">
+      <div class="mv-grid">
+        <div class="mv-image">
+          <img src="imgs/about.jpg" alt="Our Mission & Vision">
+        </div>
+        <div class="mv-text">
+          <h2>Our Mission</h2>
+          <p>Our mission is simple: to provide a trusted, transparent, and secure crypto recovery process. We understand the frustration of losing access to digital assets, and our goal is to help you regain access to your funds in a professional and secure environment.</p>
+
+          <h2>Our Vision</h2>
+          <p>We aim to be the leading crypto recovery service provider, helping individuals and organizations recover their digital assets from all forms of loss, theft, or compromise. Our vision is to foster trust and security in the crypto space, ensuring that everyone can benefit from the potential of cryptocurrencies without the fear of losing their hard-earned assets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-section">
+    <div class="container">
+      <h2 class="section-title">Why Choose RECOVERY FIXS?</h2>
+      <p class="section-subtitle">
+        Our Commitment to Crypto Recovery<br><br>
+        At RecoveryFixs, we pride ourselves on being the most trusted crypto recovery service. Here’s why we are the preferred choice for crypto recovery:
+      </p>
+      <div class="why-grid">
+        <div class="why-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Secure Process</h3>
+          <p>Our recovery process ensures the highest levels of security, protecting your privacy and data throughout the process.</p>
+        </div>
+        <div class="why-card">
+          <i class="fas fa-users"></i>
+          <h3>Expert Team</h3>
+          <p>Our team consists of experts in blockchain and crypto security, with years of experience in wallet recovery, fraud investigations, and fund recovery.</p>
+        </div>
+        <div class="why-card">
+          <i class="fas fa-headset"></i>
+          <h3>24/7 Support</h3>
+          <p>We provide round-the-clock support to help you at any stage of the recovery process. Our dedicated team is here to assist you every step of the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer — Contact section REMOVED -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-lock"></i> RECOVERY FIXS</h3>
+          <p>We specialize in securing and recovering lost or stolen digital assets. Our trusted team is here to assist you with crypto wallet recovery, scam investigations, and more.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Recovery Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <!-- ✅ "Contact" section REMOVED -->
+      </div>
+      <div class="copyright">
+        &copy; 2025 RECOVERYFIXS. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const closeMenu = document.getElementById('closeMenu');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => navLinks.classList.add('active'));
+    closeMenu.addEventListener('click', () => navLinks.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+  </script>
+</body>
+</html>
